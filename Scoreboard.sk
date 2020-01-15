@@ -1,0 +1,22 @@
+on death:
+ if attacker is a player:
+  if victim is a player:
+   add 1 to {kills::%attacker's uuid%}
+   add 1 to {deaths::%victim's uuid%}
+
+every 3 seconds:
+ loop all players:
+  if {kills::%loop-player's uuid%} is not set:
+   set {kills::%loop-player's uuid%} to 0
+  if {deaths::%loop-player's uuid%} is not set:
+   set {deaths::%loop-player's uuid%} to 0
+  if {coins::%loop-player's uuid%} is not set:
+   set {coins::%loop-player's uuid%} to 0
+  wipe loop-player's sidebar
+  set name of sidebar of loop-player to "&f&lExample"
+  set score "&aKills: &c%{kills::%loop-player's uuid%}%" in sidebar of loop-player to 5
+  set score "&aDeaths: &c%{deaths::%loop-player's uuid%}%" in sidebar of loop-player to 4
+  set score "&aPlayer: &c%loop-player%" in sidebar of loop-player to 3
+  set score "&aCoins: &c%{coins::%loop-player's uuid%}%" in sidebar of loop-player to 2
+  set score "&aOnline: &c%online player count%" in sidebar of loop-player to 1
+  set score "&f&lExample.com" in sidebar of loop-player to 0
